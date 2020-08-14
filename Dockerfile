@@ -2,6 +2,8 @@
 
 FROM maven:3.5.2-jdk-8-alpine AS maven_build
 
+COPY /etc/docker/daemon.json .
+
 COPY pom.xml /tmp/
 
 COPY src /tmp/src/
