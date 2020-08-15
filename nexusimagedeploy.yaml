@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adimage
+spec:
+  selector:
+    matchLabels:
+      app: adimage
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: adimage
+    spec:
+      containers:
+      - name: mycontainerad
+        image: 13.87.154.122:8123/java-web-app
+        imagePullPolicy: IfNotPresent
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: adimageservice
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8085
+  selector:
+    app: adimage
