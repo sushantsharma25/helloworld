@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mycontainerad
-        image: 13.87.154.122:8123/java-web-app
+        image: 13.87.154.122:8123/java-web-app:latest
         imagePullPolicy: IfNotPresent
 
 ---
@@ -28,7 +28,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 8085
+  - port: 8080
   selector:
     app: adimage
 
